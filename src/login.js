@@ -2,7 +2,7 @@ const loginName = document.querySelector('#login-form input');
 const loginDiv = document.querySelector('#Login');
 const loginButton = document.querySelector('#login-form button');
 
-if (window.localStorage.length == 0) {
+if (window.localStorage.getItem('name') == null) {
   loginDiv.classList.remove('hidden');
   loginDiv.classList.add('visible');
 } else {
@@ -12,7 +12,6 @@ if (window.localStorage.length == 0) {
 
 function loginSubmit(e) {
   window.localStorage.setItem('name', loginName.value);
-  console.log('test');
 }
 
 loginButton.addEventListener('click', loginSubmit);
